@@ -1,9 +1,7 @@
+// middlewareとして定義した関数は第一引数としてコンテキストオブジェクトを受け取る
 export default ({ store, route, redirect }) => {
-
-	if (!store.getters.isAuthenticated && route.name !== 'login' && route.name !== 'register') {
-		redirect('/login')
-	}
-	if (store.getters.isAuthenticated && (route.name === 'login' || route.name === 'register')) {
-		redirect('/')
+	// ユーザーが認証されていないとき
+	if (!store.getters.isAuthenticated) {
+		return redirect('/login')
 	}
 }

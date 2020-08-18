@@ -32,6 +32,7 @@
 
 <script>
 export default {
+  middleware: 'authenticated',
   methods: {
     signOut: function(err) {
       this.$store
