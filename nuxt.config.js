@@ -2,6 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   mode: 'spa',
+  server: {
+    port: 5000, // デフォルト: 3000
+  },
   /*
   ** Headers of the page
   */

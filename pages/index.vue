@@ -2,7 +2,7 @@
   <v-container>
     <v-row wrap justify="center" align="center">
       <v-col :sm="12" :md="8">
-        <p class="text-center">ログインユーザのみ閲覧可能なコンテンツ</p>
+        <p class="text-center">TOPページ</p>
         <div class="pa-5">
           <v-btn
             block
@@ -14,36 +14,11 @@
             サンプルページへ
           </v-btn>
         </div>
-        <div class="pa-5">
-          <v-btn
-            block
-            outlined
-            color="grey darken-3"
-            @click="signOut"
-          >
-            ログアウト
-          </v-btn>
-        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-export default {
-  methods: {
-    signOut: function(err) {
-      this.$store
-        .dispatch('signOut')
-        .then(() => {
-          this.$router.push({
-            name: 'login'
-          })
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
-    }
-  }
-}
+export default {}
 </script>
