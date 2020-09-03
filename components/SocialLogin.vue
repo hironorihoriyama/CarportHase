@@ -3,26 +3,6 @@
 		<v-col sm="12">
 			<v-btn
 				block
-				class="color-twitter text-capitalize mb-3"
-				@click="twitterLogin"
-			>
-				<v-icon left class="color-twitter__icon" size="22">
-					mdi-twitter
-				</v-icon>
-				Twitterアカウントでログイン
-			</v-btn>
-			<v-btn
-				block
-				class="color-facebook text-capitalize mb-3"
-				@click="facebookLogin"
-			>
-				<v-icon left class="color-facebook__icon" size="22">
-					mdi-facebook
-				</v-icon>
-				Facebookアカウントでログイン
-			</v-btn>
-			<v-btn
-				block
 				class="color-google text-capitalize mb-3"
 				@click="googleLogin"
 			>
@@ -77,12 +57,6 @@
 	}
 }
 
-.color-twitter {
-	@include social_button(#1da1f2);
-}
-.color-facebook {
-	@include social_button(#3b5998);
-}
 .color-google {
 	@include social_button(#fff, #757575);
 	@at-root {
@@ -98,38 +72,12 @@ import { auth } from '~/plugins/firebase.js'
 
 export default {
 	methods: {
-		twitterLogin: function(err) {
-			this.$store
-				.dispatch('signInWithTwitter')
-				.then(() => {
-					this.$router.push({
-						name: 'index'
-					})
-				})
-				.catch((err) => {
-					this.$parent.socialLoginErrorMsg =
-						'現在Twitterでのログインは使用できません。後ほどお試しください。'
-				})
-		},
-		facebookLogin: function(err) {
-			this.$store
-				.dispatch('signInWithFacebook')
-				.then(() => {
-					this.$router.push({
-						name: 'index'
-					})
-				})
-				.catch((err) => {
-					this.$parent.socialLoginErrorMsg =
-						'現在Facebookでのログインは使用できません。後ほどお試しください。'
-				})
-		},
 		googleLogin: function(err) {
 			this.$store
 				.dispatch('signInWithGoogle')
 				.then(() => {
 					this.$router.push({
-						name: 'index'
+						name: 'sample'
 					})
 				})
 				.catch((err) => {

@@ -21,14 +21,6 @@ export const actions = {
 		return auth().signInWithEmailAndPassword(email, password)
 	},
 
-	signInWithTwitter({ commit }){
-		return auth().signInWithPopup(new auth.TwitterAuthProvider())
-	},
-
-	signInWithFacebook({ commit }){
-		return auth().signInWithPopup(new auth.FacebookAuthProvider())
-	},
-
 	signInWithGoogle({ commit }){
 		return auth().signInWithPopup(new auth.GoogleAuthProvider())
 	},

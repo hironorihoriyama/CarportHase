@@ -39,7 +39,7 @@ export default {
         .dispatch('signOut')
         .then(() => {
           this.$router.push({
-            name: 'login'
+            name: 'index'
           })
         })
         .catch((err) => {
