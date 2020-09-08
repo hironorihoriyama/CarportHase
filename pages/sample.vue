@@ -2,7 +2,7 @@
   <v-container>
     <v-row wrap justify="center" align="center">
       <v-col :sm="12" :md="8">
-        <p class="text-center">ログインユーザのみ閲覧可能なコンテンツ</p>
+        <p class="text-center">{{ $store.getters.user.displayName }}　様</p>
         <p class="text-center">サンプルページ</p>
         <div class="pa-5">
           <v-btn
