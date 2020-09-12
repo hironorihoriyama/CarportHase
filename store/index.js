@@ -1,40 +1,39 @@
 import { auth } from '~/plugins/firebase.js'
+import { vuexfireMutations } from 'vuexfire'
 
 export const strict = false
 
 export const state = () => ({
-	user: null,
+	user: null
 })
 
 export const mutations = {
-	setUser(state, payload) {
+	setUser: (state, payload) => {
 		state.user = payload
-	}
+	},
+	...vuexfireMutations
 }
 
 export const actions = {
-	signUp({ commit }, { email, password }) {
+	signUp: ({ commit }, { email, password }) => {
 		return auth().createUserWithEmailAndPassword(email, password)
 	},
-
-	signInWithEmail({ commit }, { email, password }) {
+	signInWithEmail: ({ commit }, { email, password }) => {
 		return auth().signInWithEmailAndPassword(email, password)
 	},
-
-	signInWithGoogle({ commit }){
+	signInWithGoogle: ({ commit }) => {
 		return auth().signInWithPopup(new auth.GoogleAuthProvider())
 	},
-
-	signOut() {
+	signOut: () => {
 		return auth().signOut()
 	}
 }
 
 export const getters = {
-	user(state){
+	user: (state) => {
 		return state.user
 	},
-	isAuthenticated (state) {
+	isAuthenticated: (state) => {
 		return !!state.user
 	}
 }
