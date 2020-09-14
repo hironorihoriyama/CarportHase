@@ -6,7 +6,7 @@
         <p>駐車場たち：{{ carports }}</p>
         <ul>
             <li v-for="user in loginedUsers" :key="user.id">
-              {{ user.name }}
+              {{ user.name }} {{ user.id }}
             </li>
         </ul>
         <div class="form">
