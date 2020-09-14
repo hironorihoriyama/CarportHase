@@ -2,9 +2,10 @@
     <div>
         <p class="text-center">{{ $store.getters.user.uid }}　様</p>
         <p class="text-center">サンプルページ</p>
-        <p>配列の中身：{{ users }}</p>
+        <p>配列の中身：{{ loginedUsers }}</p>
+        <p>駐車場たち：{{ carports }}</p>
         <ul>
-            <li v-for="user in users" :key="user.id">
+            <li v-for="user in loginedUsers" :key="user.id">
               {{ user.name }}
             </li>
         </ul>
@@ -58,7 +59,7 @@ export default {
   data: function() {
     return {
       name: '',
-      carports: {
+      carport: {
         address: '',
         capacity: '',
         gmap_url: '',
@@ -88,17 +89,18 @@ export default {
     addUser: function() {
       this.$store.dispatch('users/addUser', this.name)
       this.name = ''
-    },
-    add() {
-      this.$store.dispatch('users/add', this.carports)
     }
   },
   created: function() {
     this.$store.dispatch('users/loginedInit')
+    this.$store.dispatch('users/carportsInit')
   },
   computed: {
-    users() {
+    loginedUsers() {
       return this.$store.getters['users/loginedUsers']
+    },
+    carports() {
+      return this.$store.getters['users/carports']
     }
   }
 }
