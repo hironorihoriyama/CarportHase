@@ -131,7 +131,7 @@ export default {
 					this.login_email = ''
 					this.login_password = ''
 					this.$router.push({
-						name: 'sample'
+						name: 'carports'
 					})
 				})
 				.catch((err) => {

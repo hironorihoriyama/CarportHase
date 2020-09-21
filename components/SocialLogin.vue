@@ -77,7 +77,7 @@ export default {
 				.dispatch('signInWithGoogle')
 				.then(() => {
 					this.$router.push({
-						name: 'sample'
+						name: 'carports'
 					})
 				})
 				.catch((err) => {
