@@ -12,7 +12,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
 export const state = () => ({
     carports: [],
-    myCarports: []
+    myCarports: [],
+    myCarport: []
 })
 
 export const actions = {
@@ -22,6 +23,11 @@ export const actions = {
     myCarportsInit: firestoreAction(({ bindFirestoreRef }) => {
         if(uid) {
             bindFirestoreRef('myCarports', carportsRef.where('uid', '==', uid))
+        }
+    }),
+    myCarportInit: firestoreAction(({ bindFirestoreRef }, id) => {
+        if(uid) {
+            bindFirestoreRef('myCarport', carportsRef.doc(id))
         }
     }),
     carportAdd: firestoreAction((context, carportInfo) => {
@@ -52,5 +58,8 @@ export const getters = {
     },
     myCarports: (state) => {
         return state.myCarports
+    },
+    myCarport: (state) => {
+        return state.myCarport
     }
 }

@@ -5,7 +5,7 @@
     <p>配列の中身：{{ myCarports }}</p>
     <ul v-if="myCarports.length">
       <li v-for="carport in myCarports" :key="carport.id">
-        <nuxt-link to="/carport">
+        <nuxt-link :to="`/carport/${carport.id}`">
           駐車場ID：{{ carport.id }}<br>
           駐車場：{{ carport.name }}
         </nuxt-link>
